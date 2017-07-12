@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>慕课网-巨幕课程分类部分</title>
+
+
+    <link href="<?php echo base_url('/assets/css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
+    <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+
+</head>
+<style>
+
+    /*最外面的包裹层*/
+    #main{
+        margin-top: 30px;
+    }
+
+    /*相对html的绝对定位背景图元素*/
+    .bk{
+        position: absolute;
+        width: 100%;
+        height: 490px;
+        top:0px;
+        left: 0px;
+        background-image: url("<?php echo base_url('/assets/images/muke/bk.jpg'); ?>");
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -100;
+    }
+
+    /*所有的内容都在这里面，最外层是相对定位*/
+    .g-banner{
+        position: relative;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        height: 460px;
+        width: 1200px;
+        margin: auto;
+        background-color: #93999f;
+    }
+
+    /*左侧菜单栏的背景颜色，设置了绝对定位*/
+    .menuwrap{
+        position: absolute;
+        width: 224px;
+        top:0;
+        left: 0;
+        height: 460px;
+        background-color: rgba(7,17,27,5);
+        z-index: 1;
+        opacity: .202;
+    }
+
+    /*左侧菜单栏内容，设置了绝对定位*/
+    .menuContent{
+        position: absolute;
+        padding-top: 8px;
+        width: 224px;
+        top:0;
+        left: 0;
+        height: 460px;
+        z-index: 2;
+    }
+
+    .menuContent .item{
+        height: 64px;
+        line-height: 66px;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .menuContent .item:hover{
+
+        background-color: rgba(7,17,27,5);
+        opacity: .402;
+    }
+
+    .menuContent .item:hover a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .menuContent .item a{
+        display: block;
+        color: #fff;
+        padding: 0 8px;
+        border-bottom: 1px solid rgba(255,255,255,.2);
+        height: 63px;
+    }
+    .menuContent .item a span{
+        font-size: 16px;
+    }
+
+    /*导航对应的内容样式，innerbox是背景图*/
+    .submenu{
+        position: absolute;
+        border: 1px solid #d9dde1;
+        left: 224px;
+        top: 0;
+        width: 732px;
+        height: 460px;
+        z-index: 581;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,.1);
+        box-sizing: border-box;
+        background-color: #fff;
+    }
+
+    .innerBox{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+    /*图片轮播部分的样式*/
+    .g-banner .banner-slide{
+        position: absolute;
+        width: 1200px;
+        height: 460px;
+        top:0px;
+        left: 0px;
+
+        background-position: center 0;
+        background-repeat: no-repeat;
+
+    }
+
+    .g-banner .next, .g-banner .prev {
+        top: 50%;
+        height: 80px;
+        width: 40px;
+        background-image: url("<?php echo base_url('/assets/images/muke/pre.png'); ?>");
+        background-position: center;
+        position: absolute;
+    }
+    .g-banner .banner-anchor{
+        margin-top: -50px;
+        width: 44px;
+        height: 80px;
+        overflow: hidden;
+        text-indent: -90em;
+        background-repeat: no-repeat;
+    }
+
+    .g-banner .banner-anchor:hover{
+        background-color: #0a2b1d;
+    }
+    .g-banner .prev{
+        left: 244px;
+        transform: rotate(180deg);
+    }
+
+    .g-banner .next{
+        right: 0;
+    }
+
+    .g-banner .banner-dots{
+
+        position: absolute;
+        bottom: 24px;
+        padding-right: 24px;
+        right: 0;
+        height: 12px;
+        line-height: 12px;
+    }
+
+    .g-banner .banner-dots span{
+
+        display: inline-block;
+        margin-right: 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(7,17,27,.4);
+        transition: transform .2s;
+        cursor: pointer;
+        box-shadow: 0 0 0 2px rgba(255,255,255,.8) inset;
+
+    }
+
+    .active{
+        background-color: rgba(255,255,255,.8)!important;
+        box-shadow: 0 0 0 2px  rgba(7,17,27,.2) inset!important;
+    }
+
+</style>
+
+
+<body>
+
+<div style="text-align: center;height: 100px;">
+    <p style="color: black">这里是导航栏</p>
+</div>
+
+<div id="main">
+
+
+<!--    设置背景图片-->
+    <div class="bk">
+    </div>
+
+
+<!--    主体内容存放的部分-->
+    <div class="g-banner">
+
+        <!--    设置左边的菜单包裹层-->
+        <div class="menuwrap">
+        </div>
+
+        <!--    左侧菜单栏的内容-->
+        <div class="menuContent">
+            <div class="item" data-id="a">
+                <a href="">
+                    <span>前端开发</span>
+                </a>
+            </div>
+
+            <div class="item" data-id="b">
+                <a href="">
+                    <span>后端开发</span>
+                </a>
+            </div>
+
+            <div class="item" data-id="c">
+                <a href="">
+                    <span>移动开发</span>
+                </a>
+            </div>
+            <div class="item" data-id="d">
+                <a href="">
+                    <span>数据库</span>
+                </a>
+            </div>
+
+            <div class="item" data-id="e">
+                <a href="">
+                    <span>云计算&大数据</span>
+                </a>
+            </div>
+            <div class="item" data-id="f">
+                <a href="">
+                    <span>运维&测试</span>
+                </a>
+            </div>
+            <div class="item" data-id="g">
+                <a href="">
+                    <span>UI设计</span>
+                </a>
+            </div>
+        </div>
+
+<!--        滑动显示内部分-->
+        <div class="submenu a" data-id="a" style="display: none">
+            <div class="innerBox" style='background-image:url("<?php echo base_url('/assets/images/muke/1.png'); ?>") ;background-size: 100%'>
+                <div style="padding: 30px">
+                    <h4>分类目录</h4>
+                    <p>基础：HTML/CSS  JAVASCRIPT JQUERY</p>
+                    <p>进阶：Html5 Css3 AngularJS ReactJS NodeJs Bootstarp </p>
+                    <p>其它：Webpack git 等</p>
+                    <hr/>
+                    <a href="http://www.imooc.com" target="_blank">欢迎访问慕课网主页</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="submenu b"  data-id="b"  style="display: none">
+            <div class="innerBox" style='background-image:url("<?php echo base_url('/assets/images/muke/2.png'); ?>") ;background-size: 100%'>
+            <div style="padding: 30px">
+
+                <h4>后端开发</h4>
+                <p>基础：PHP JAVA C++</p>
+                <p>进阶：Html5 Css3 AngularJS ReactJS NodeJs Bootstarp </p>
+                <p>其它：Webpack git 等</p>
+                <hr/>
+                <a href="http://www.imooc.com" target="_blank">欢迎访问慕课网主页</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="submenu c"  data-id="c"   style="display: none">
+            <div class="innerBox" style='background-image:url("<?php echo base_url('/assets/images/muke/3.png'); ?>") ;background-size: 100%'>
+            <div style="padding: 30px">
+
+                <h4>分类目录</h4>
+                <p>基础：陌上花开</p>
+                <p>进阶：Html可缓缓归矣</p>
+                <p>其它：茉等花开</p>
+                <hr/>
+                <a href="http://www.imooc.com" target="_blank">欢迎访问慕课网主页</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="submenu d"  data-id="d"   style="display: none">
+            <div class="innerBox" style='background-image:url("<?php echo base_url('/assets/images/muke/2.png'); ?>") ;background-size: 100%'>
+            <div style="padding: 30px">
+
+                <h4>分类目录</h4>
+                <p>基础：陌上花开</p>
+                <p>进阶：Html可缓缓归矣</p>
+                <p>其它：茉等花开</p>
+                <hr/>
+                <a href="http://www.imooc.com" target="_blank">欢迎访问慕课网主页</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="submenu e"   data-id="e"  style="display: none">
+            <div class="innerBox" style='background-image:url("<?php echo base_url('/assets/images/muke/3.png'); ?>") ;background-size: 100%'>
+            <div style="padding: 30px">
+                <h4>分类目录</h4>
+                <p>基础：陌上花开</p>
+                <p>进阶：Html可缓缓归矣</p>
+                <p>其它：茉等花开</p>
+                <hr/>
+                <a href="http://www.imooc.com" target="_blank">欢迎访问慕课网主页</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="submenu f"  data-id="f"   style="display: none">
+            <div class="innerBox" style='background-image:url("<?php echo base_url('/assets/images/muke/1.png'); ?>") ;background-size: 100%'>
+            <div style="padding: 30px">
+                <h4>分类目录</h4>
+                <p>基础：陌上花开</p>
+                <p>进阶：Html可缓缓归矣</p>
+                <p>其它：茉等花开</p>
+                <hr/>
+                <a href="http://www.imooc.com" target="_blank">欢迎访问慕课网主页</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="submenu g"  data-id="g"   style="display: none">
+            <div class="innerBox" style='background-image:url("<?php echo base_url('/assets/images/muke/2.png'); ?>") ;background-size: 100%'>
+            <div style="padding: 30px">
+                <h4>分类目录</h4>
+                <p>基础：陌上花开</p>
+                <p>进阶：Html可缓缓归矣</p>
+                <p>其它：茉等花开</p>
+                <hr/>
+                <a href="http://www.imooc.com" target="_blank">欢迎访问慕课网主页</a>
+            </div>
+            </div>
+        </div>
+<!--        设置了绝对定位的元素排在那个位置已经不重要了-->
+
+
+        <!--        轮播图片的内容开始 ， js操作的参数为--class="banners banner-1"-->
+        <div class="g-banner-content">
+            <a href="http://www.baidu.com" target="_blank" style="display: block" class="banners banner-0">
+                <div class="banner-slide" style='background-image: url("<?php echo base_url('/assets/images/muke/banner_1.jpg'); ?>");'>
+                </div>
+            </a>
+
+            <a href="http://www.sina.com" target="_blank" style="display: none" class="banners banner-1">
+                <div class="banner-slide" style='background-image: url("<?php echo base_url('/assets/images/muke/banner_2.jpg'); ?>");'>
+                </div>
+            </a>
+
+            <a href="http://www.tecent.com" target="_blank"  style="display:none" class="banners banner-2">
+                <div class="banner-slide" style='background-image: url("<?php echo base_url('/assets/images/muke/banner_3.jpg'); ?>");'>
+                </div>
+            </a>
+
+            <a href="http://www.youku.com" target="_blank" style="display: none" class="banners banner-3">
+                <div class="banner-slide" style='background-image: url("<?php echo base_url('/assets/images/muke/banner_4.jpg'); ?>");'>
+                </div>
+            </a>
+
+            <a href="http://www.youku.com" target="_blank" style="display: none" class="banners banner-4">
+                <div class="banner-slide" style='background-image: url("<?php echo base_url('/assets/images/muke/banner_5.jpg'); ?>");'>
+
+                </div>
+            </a>
+        </div>
+        <!--        轮播图片的内容结束-->
+
+<!--        轮播图片对应的点点开始-->
+        <div class="banner-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+<!--         轮播图片对应的点点结束-->
+<!--        轮播图片的左右按钮开始-->
+
+        <a class="banner-anchor prev" ></a>
+        <a class="banner-anchor next" ></a>
+<!--        轮播图片的左右按钮结束-->
+
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    //!!!!***jQuery与js实现的css:hover的浮动效果开始
+    $(".item").hover(function(){
+        var item_id = $(this).data("id");
+        $("."+item_id).css('display','block');
+    },function(){
+        var item_id = $(this).data("id");
+        $("."+item_id).css('display','none');
+    });
+
+    $(".submenu").hover(function(){
+        $(this).css('display','block');
+    },function(){
+        $(this).css('display','none');
+    });
+    //!!!!***jQuery与js实现的css:hover的浮动效果结束
+
+
+    //自定义的轮播插件开始，闭包注册全部的事件
+    (function(){
+
+        //轮播的数据结构
+        var banner_obj={
+
+            //定时器
+            "timer":null,
+            //图片当前的索引
+            "img_current_index":0,
+            //轮播的间隔时间
+            "speed":5000,
+            //轮播图片的总数
+            "num_imgs":5
+
+        };
+
+
+        //！！核心方法,显示当前的图片与隐藏掉图片，不要在函数中计数当前图片的index
+        var core = function(){
+
+            if(banner_obj.img_current_index>banner_obj.num_imgs-1) {
+                banner_obj.img_current_index = 0;
+            }else if(banner_obj.img_current_index<0){
+                banner_obj.img_current_index = banner_obj.num_imgs-1;
+            }
+            var str = 'banner-'+banner_obj.img_current_index;
+//            $('.banners').css("display","none");
+//            $('.'+str).css("display","block");
+
+            $('.banners').fadeOut(300);
+            $('.'+str).fadeIn(1000);
+
+            $(".banner-dots>span").removeClass("active");
+            $(".banner-dots>span").eq(banner_obj.img_current_index).addClass("active");
+
+        };
+
+
+        //设置定时器
+        var timer = function(){
+            banner_obj.timer = setInterval(function(){
+                banner_obj.img_current_index++;
+                core();
+            },banner_obj.speed)
+        };
+
+
+        //响应左右轮播点击按钮，上一张，下一张
+        $(".prev").click(function(){
+            banner_obj.img_current_index--;
+            core();
+        });
+
+        $(".next").click(function(){
+            banner_obj.img_current_index++;
+            core();
+        });
+
+        //图片对应的下面的小点点的点击事件
+        $(".banner-dots>span").click(function(){
+
+            //确定当前点击的是第几个元素
+            var current_index = $(this).index();
+
+            banner_obj.img_current_index = current_index;
+            core();
+
+        });
+
+        //停在图片,按钮，导航点上时，清除掉定时器。移除时重新开始定时
+        $(".banners,.prev,.next,.banner-dots").hover(function(){
+            clearInterval(banner_obj.timer);
+        },function(){
+            timer();
+        });
+
+        //启动定时程序
+        timer();
+
+    })();
+
+
+
+
+    //自定义的轮播插件结束
+
+</script>
+
