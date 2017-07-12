@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>慕课网-导航栏实现</title>
+
+
+    <link href="<?php echo base_url('/assets/css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
+    <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+
+</head>
+<style>
+    /* 设置网页的最小宽度值*/
+    html{
+        width: 100%;
+        min-width: 1000px;
+
+    }
+
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+
+
+    /*导航栏开始*/
+    .ty_nav{
+        zoom:1
+    }
+    
+    .ty_nav:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    ul{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    li{
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        padding:0px 15px;
+    }
+    /*主体开始*/
+    .center-wrapper{
+        position: relative;
+        text-align: center;
+        display: inline-block;
+    }
+    .center-a{
+        display: inline-block;
+        /*background-color: pink;*/
+        font-size: 16px;
+        color:#6e6e6e;
+
+    }
+
+    .center-div{
+        /*子元素需要设置绝对定位*/
+        position: absolute;
+        /*注释掉这一句便于调试*/
+        display: none;
+        border: 1px solid #E8E9EA;
+        box-shadow: 2px 2px 6px #CECFD0 ;
+        padding: 20px;
+        right: 0px;
+        /*设置为填满整个父容器*/
+        width: 300%;
+
+    }
+
+    .center-wrapper:hover .center-div
+    {
+       display: block;
+    }
+
+    /*主体结束*/
+
+
+
+    .img-width{
+        width: 95%;
+    }
+
+    .center-item-span{
+        display: inline-block;
+        width: 48%;
+        margin-right: 1px;
+        margin-bottom: 1px;
+        background-color: #CECFD0;
+        color: white;
+    }
+
+
+    .nav-a{
+        font-size: 16px;
+        color:#2A2A2A;
+    }
+
+    .nav-logo{
+        background-color: black;
+        color: white;
+        display: inline-block;
+        /*使用填充样式布局样式*/
+        padding:10px;
+    }
+</style>
+
+
+<body>
+
+<!--仿慕课网-导航栏开始-->
+<div class="ty_nav">
+
+    <!--    导航栏图标部分-->
+    <div style="display: inline-block;">
+        <a class="nav-logo">慕课网</a>
+    </div>
+
+<!--    导航栏快速索引-->
+    <div style="display: inline-block">
+        <ul>
+            <li><a class="nav-a">课程</a></li>
+            <li><a class="nav-a">职业路径</a></li>
+            <li><a class="nav-a">猿问</a></li>
+            <li><a class="nav-a">实战</a></li>
+            <li><a class="nav-a">手记</a></li>
+        </ul>
+    </div>
+
+
+<!--    导航栏-右浮动的部分-->
+    <div style="float: right">
+        <ul>
+
+
+            <!--    主体开始-->
+            <li class="center-wrapper">
+                <a class="center-a">
+                    <span style="color: red" class="glyphicon glyphicon-shopping-cart"></span>
+                    购物车
+                </a>
+
+                <div class="center-div">
+
+                    <div class="row">
+                        <div class="col-sm-4">
+
+                            <img class="img-circle img-width" src="<?php echo base_url('/assets/images/touxiang/4.jpg'); ?>" />
+
+                        </div>
+                        <div class="col-sm-8">
+                            <h5><strong>傲娇的小公主殿下</strong></h5>
+                            <p>经验:2123 积分:2</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="center-item-span">我的订单</span>
+                        <span class="center-item-span">积分商城</span>
+                        <span class="center-item-span">我的课程</span>
+                        <span class="center-item-span">个人设置</span>
+                    </div>
+
+                    <hr/>
+                    <p><a href="http://www.imooc.com" target="_blank">点击进入慕课首页</a></p>
+
+                </div>
+            </li>
+            <!--    主体结束-->
+
+
+
+            <li>提醒</li>
+            <li>个人中心</li>
+        </ul>
+    </div>
+
+
+
+<!--    导航栏检索部分,!!!!!父元素设置垂直居中，子元素检索框设置一个高度即可垂直居中-->
+    <div style="display: inline-block;float: right;height: 50px;line-height: 50px;margin-right: 30px">
+
+        <input type="text" placeholder="请输入课程" style="height: 30px;border-radius: 2px;border: 1px solid #CDD2D6">
+
+
+    </div>
+
+</div>
+
+<!--仿慕课网-导航栏结束-->
+
+
+
+
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+</script>
+

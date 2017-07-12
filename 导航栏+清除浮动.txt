@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap的基本模板</title>
+
+    <link href="<?php echo base_url('/assets/css/bootstrap.min.css'); ?>" rel="stylesheet" media="screen">
+    <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .wrapper{
+        width: 98%;
+        margin: 0px auto;
+        /*background-color: lightpink;*/
+        color: white;
+        height: 1000px;
+    }
+
+    .section-head{
+        padding: 20px;
+        background-color: #0f192a;
+        color: whitesmoke;
+        margin-bottom: 10px;
+
+    }
+
+    .section-body{
+        zoom:1;
+        padding: 30px 0px;
+
+    }
+
+    .section-body:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+
+    .float-div-left{
+        float: left;
+        width: 70%;
+        background-color: #5caaaf;
+        padding: 30px;
+        height: 400px;
+    }
+
+    .float-div-right{
+        float: right;
+        width: 28%;
+        background-color: #5caaaf;
+        padding: 30px;
+        height: 400px;
+    }
+    .section-footer{
+        padding: 20px;
+        background-color: #0f192a;
+        color: whitesmoke;
+
+    }
+
+    .ul-nav{
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .ul-nav li{
+        display: inline-block;
+        /*垂直居中*/
+        height: 30px;
+        line-height: 30px;
+        margin-right: 50px;
+    }
+
+    .ul-li-active{
+        border-bottom: 3px solid whitesmoke;
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    ul li:hover{
+        background-color: white;
+        color: black;
+    }
+
+
+</style>
+
+<body>
+<div class="wrapper">
+
+    <div class="section-head">
+
+        <ul class="ul-nav">
+            <li class="ul-li-active">首页</li>
+            <li>产品</li>
+            <li>产品</li>
+            <li>产品</li>
+            <li>产品</li>
+            <li>产品</li>
+        </ul>
+
+    </div>
+
+    <div class="section-body">
+
+        <div class="float-div-left">
+
+            <div class="row">
+                <div class="col-sm-4">
+
+                    <p>请叫我呜啦啦啦氏</p>
+                </div>
+                <div class="col-sm-8">
+                    <p style="background-color: pink">陌上花开</p>
+                    <p>可缓缓归矣</p>
+                    <p>可缓缓归矣</p>
+                    <p>可缓缓归矣</p>
+                    <p>可缓缓归矣</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="float-div-right">
+            <ul>
+                <li>星期一</li>
+                <li>星期二</li>
+                <li>星期三</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-footer">
+        <p>@copyright-版权所有，盗版必究</p>
+    </div>
+
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+
+
+</script>
+
